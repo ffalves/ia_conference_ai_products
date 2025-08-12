@@ -1,0 +1,12 @@
+{
+  "status": "valid",
+  "batch_id": "20250812_032341-724fbe85",
+  "row_count": 461,
+  "source_file": "raw_layer/data/raw_data/raw_data.csv",
+  "source_sha256": "9c76dfd8f73499949cb00d90496bc1a916ae4282fcbfc011fedf1b40ee37e45b",
+  "contract_version": "1.0.1",
+  "timestamp": "2025-08-12T03:23:41.177246",
+  "sample_output_file": "raw_layer/data/processed_raw_data/valid/valid_data_20250812_032341.csv",
+  "sample_output_sha256": "23aaaa725d66d1c76b9bee1dd1e75a505d9cc3c634b28fd841272fa68e69aa56",
+  "producer": "input_contract_enforcer"
+}

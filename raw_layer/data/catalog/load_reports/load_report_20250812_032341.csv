@@ -1,0 +1,12 @@
+metric,value,details
+batch_id,20250812_032341-724fbe85,
+source_path,raw_layer/data/raw_data/raw_data.csv,
+source_sha256,9c76dfd8f73499949cb00d90496bc1a916ae4282fcbfc011fedf1b40ee37e45b,
+rows_total,500,
+rows_valid,461,
+rows_invalid,39,
+invalid_records_pct,7.8,
+status,accepted,
+contract_version,1.0.1,
+required_presence_email,99.0,"{""observed_pct"": 99.0, ""required_pct"": 98.0}"
+domain_violations_per_field,,"{""email"": 13, ""user_id"": 10, ""cpf"": 5, ""idade"": 4, ""canal_preferido"": 4, ""dias_desde_ultima_compra"": 4, ""score_engajamento"": 4}"

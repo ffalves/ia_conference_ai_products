@@ -1,0 +1,40 @@
+user_id,nome,email,cpf,idade,genero,estado_civil,estado,renda_mensal,canal_preferido,frequencia_compras_ult_12m,ticket_medio,dias_desde_ultima_compra,tem_cartao_fidelidade,score_engajamento,comprou_ult_3m
+XYZ,Igor Santos,igorsant198@example.com,068.486.661-73,27,Outro,casado,GO,2234.15,app,3,197.31,82,False,0.66,1
+XYZ,Sra. Eva Silva,sraevasi227@example.org,061.497.310-49,74,F,casado,RS,3190.74,whatsapp,1,69.73,46,True,0.82,1
+U074,Diego Santos,diegosan74@example.net,123.456.789-00,35,Outro,solteiro,TO,897.22,email,3,213.89,201,True,0.43,1
+U188,Sra. Paula Oliveira,srapaula188@example.net,123.456.789-00,70,Outro,divorciado,PB,4998.28,email,7,47.96,233,False,0.16,1
+U439,Sr. Ana Almeida,sranaalm439@example.net,123.456.789-00,40,Outro,casado,SE,3668.41,whatsapp,3,195.18,115,False,0.43,1
+U471,Rafa Santos,rafasant471@example.org,123.456.789-00,64,Outro,casado,PA,4152.22,whatsapp,9,193.38,110,True,0.33,1
+U100,Dr. Vera Almeida,drveraal100@example.com,229.270.653-90,16,M,divorciado,SP,4237.54,email,7,347.57,6,False,0.34,1
+U220,Sr. Carla Rodrigues,srcarlar220@example.net,691.545.226-50,16,Outro,viúvo,RS,5550.82,whatsapp,13,460.53,159,True,0.75,1
+U240,Helena Pereira,helenape240@example.net,446.657.437-54,16,M,viúvo,RJ,4911.23,app,9,445.33,66,False,0.41,0
+U385,Sra. Otávio Rocha,sraotvio385@example.com,459.928.161-19,16,M,solteiro,SE,10274.69,whatsapp,6,150.6,182,True,0.17,1
+U121,Dr. Zeca Gomes,drzecago121@example.net,959.001.094-61,42,Outro,casado,SP,5585.29,telefone,3,277.68,82,True,0.39,1
+U194,Dr. Yasmin Barbosa,dryasmin194@example.com,189.092.753-83,40,Outro,casado,PA,3543.58,telefone,4,239.55,121,False,0.65,0
+U304,Dr. Zeca Silva,drzecasi304@example.org,302.146.566-83,73,Outro,casado,PE,3872.54,telefone,8,217.04,142,True,0.56,0
+U400,Sra. Marcos Santos,sramarco400@example.net,723.950.410-76,32,F,viúvo,MG,3117.97,telefone,6,381.16,3,True,0.23,0
+U251,Marcos Barbosa,marcosba251@example.org,890.901.001-05,56,M,viúvo,MG,8903.37,app,6,101.55,-5,True,0.44,0
+U253,Júlia Souza,jliasouz253@example.com,739.348.356-43,57,M,casado,AL,6659.51,email,7,408.45,-5,False,0.61,1
+U381,Dr. Sofia Rodrigues,drsofiar381@example.net,542.493.214-28,64,Outro,divorciado,PI,5318.16,email,3,240.54,-5,True,0.65,0
+U411,Sra. Carla Barbosa,sracarla411@example.org,320.309.376-65,29,F,divorciado,PR,5189.42,email,7,159.13,-5,False,0.66,0
+U042,Sr. Thiago Barbosa,srthiago42@example.org,631.931.491-52,41,Outro,solteiro,MS,7399.69,email,7,322.94,0,False,1.5,0
+U184,Dr. Otávio Gomes,drotviog184@example.net,788.191.485-87,37,Outro,solteiro,SP,2236.71,email,6,32.59,129,False,1.5,0
+U398,Eva Castro,evacastr398@example.com,442.944.401-39,54,Outro,casado,RJ,6215.95,site,7,163.83,25,True,1.5,0
+U067,Sra. Thiago Oliveira,srathiag67@example.com,123.456.789-00,33,F,viúvo,MS,5111.78,whatsapp,8,402.52,136,True,0.37,0
+U379,Ana Pereira,srarafao378@example.com,915.701.840-54,70,Outro,divorciado,RS,4540.46,site,2,182.35,222,True,0.63,1
+U378,Sra. Rafa Oliveira,srarafao378@example.com,578.452.182-94,21,F,solteiro,PB,6669.97,email,4,62.11,97,False,0.35,1
+U007,Dr. Helena Araujo,,849.696.532-59,62,Outro,viúvo,AP,4130.21,app,4,288.53,72,True,0.18,0
+XYZ,Sra. Marcos Silva,sramarco341@example.net,049.082.404-85,23,F,casado,MT,3309.92,app,5,305.94,40,True,0.48,0
+XYZ,Kaio Castro,kaiocast345@example.net,258.320.679-67,42,Outro,solteiro,ES,7537.63,email,4,395.77,135,True,0.78,0
+XYZ,Sr. Zeca Martins,srzecama448@example.org,451.895.202-26,21,Outro,divorciado,MS,3514.03,email,6,403.95,276,False,0.41,1
+U021,Dr. Lívia Souza,,542.784.980-71,56,Outro,divorciado,RO,7618.16,app,9,353.88,104,False,0.35,1
+U332,Sra. Gustavo Silva,drfelipe331@example.com,652.407.784-93,55,Outro,viúvo,DF,4646.5,site,9,238.15,109,True,0.6,0
+U072,Sra. Sofia Rodrigues,,604.817.549-38,69,M,divorciado,AM,6846.42,site,7,216.65,148,False,0.2,1
+U205,Lívia Santos,,949.375.973-37,71,Outro,casado,BA,3384.64,app,6,48.65,189,False,0.36,0
+U236,Dr. Otávio Santos,,785.082.148-39,61,M,casado,SP,4517.19,app,5,28.09,11,True,0.6,0
+U271,Ana Araujo,anaarauj271@example.org,397.359.893-28,20,Outro,casado,MA,2353.53,email,6,344.56,43,False,0.53,0
+U272,Dr. Zeca Souza,anaarauj271@example.org,281.606.484-05,63,F,casado,RJ,5653.41,whatsapp,3,134.17,59,False,0.39,0
+U317,Sr. Kaio Barbosa,srkaioba317@example.net,771.694.722-28,44,Outro,divorciado,PA,4829.27,email,4,248.62,57,False,0.66,1
+U318,Carla Oliveira,srkaioba317@example.net,355.449.647-26,61,M,viúvo,PA,4407.58,site,5,90.18,209,True,0.39,0
+U331,Dr. Felipe Mendes,drfelipe331@example.com,950.052.812-66,59,M,casado,MT,7463.69,whatsapp,5,89.28,93,True,0.21,0
+U446,Lívia Castro,lviacast446@example.net,904.290.257-42,71,Outro,casado,MS,4595.13,site,7,209.95,93,False,1.5,0

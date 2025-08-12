@@ -1,0 +1,161 @@
+dataContractSpecification: 1.0.0
+id: input_contract
+info:
+  title: Input Contract for Purchase Propensity Model
+  version: 1.0.1
+  description: Contrato de dados de entrada para modelo de propensão de compra
+  owner: CRM Team
+  status: active
+  contact:
+    name: Joao Maria (Data Product Owner)
+    email: joaomaria@crmteam.com
+  created_at: 2025-08-01
+
+terms:
+  usage:
+    - Este contrato define os dados de entrada necessários para o modelo de propensão de compra.
+    - Apenas registros que atendam a este contrato devem seguir para o modelo.
+    - Registros inválidos são segregados e logados.
+  limitations:
+    - Formato CSV; campos obrigatórios onde indicado.
+  policies:
+    - name: privacy_policy
+      url: https://company.com/privacy-policy
+
+security:
+  classification: confidential
+  pii_handling:
+    mask_in_logs: ["nome","email","cpf"]
+
+observability:
+  acceptance_criteria:
+    batch_warn_if_invalid_pct_gt: 10
+    batch_fail_if_invalid_pct_gt: 30
+    required_fields_presence:
+      email: 98   # % mínimo de preenchimento de email
+    per_field_max_null_pct: 5
+  metrics:
+    - name: invalid_records_pct
+    - name: null_ratio_per_field
+    - name: domain_violations_per_field
+
+models:
+  users:
+    description: Um registro por usuário
+    type: object
+    primary_key: ["user_id"]
+    unique_keys: ["user_id","email"]
+
+    fields:
+      - name: user_id
+        type: string
+        required: true
+        quality:
+          - type: regex
+            pattern: '^U\d{3}$'
+            description: U + 3 dígitos (U001..U999)
+          - type: uniqueness
+            level: dataset
+
+      - name: nome
+        type: string
+        required: true
+        pii: true
+
+      - name: email
+        type: string
+        required: true
+        pii: true
+        quality:
+          - type: regex
+            pattern: '^[^@\s]+@[^@\s]+\.[^@\s]+$'
+          - type: uniqueness
+            level: dataset
+
+      - name: cpf
+        type: string
+        required: true
+        pii: true
+        quality:
+          - type: regex
+            pattern: '^\d{3}\.\d{3}\.\d{3}-\d{2}$'
+          - type: custom
+            name: cpf_checksum
+            optional: true   # <- regra custom opcional (soft)
+
+      - name: idade
+        type: integer
+        required: true
+        constraints: { min: 18, max: 100 }
+
+      - name: genero
+        type: string
+        required: true
+        enum: ["F","M","Outro"]
+
+      - name: estado_civil
+        type: string
+        required: true
+        enum: ["solteiro","casado","divorciado","viúvo"]
+
+      - name: estado
+        type: string
+        required: true
+        enum: ["AC","AL","AP","AM","BA","CE","DF","ES","GO","MA","MT","MS","MG","PA","PB","PR","PE","PI","RJ","RN","RS","RO","RR","SC","SP","SE","TO"]
+
+      - name: renda_mensal
+        type: float
+        required: true
+        constraints: { min: 0.0 }
+
+      - name: canal_preferido
+        type: string
+        required: true
+        enum: ["app","site","whatsapp","email"]
+
+      - name: frequencia_compras_ult_12m
+        type: integer
+        required: true
+        constraints: { min: 0 }
+
+      - name: ticket_medio
+        type: float
+        required: true
+        constraints: { min: 0.0 }
+
+      - name: dias_desde_ultima_compra
+        type: integer
+        required: true
+        constraints: { min: 0 }
+
+      - name: tem_cartao_fidelidade
+        type: boolean
+        required: true
+
+      - name: score_engajamento
+        type: float
+        required: true
+        constraints: { min: 0.0, max: 1.0 }
+
+      - name: comprou_ult_3m
+        type: integer
+        required: true
+        constraints: { min: 0, max: 1 }
+
+examples:
+  - user_id: U001
+    nome: Ana Souza
+    email: ana.souza@example.com
+    cpf: "123.456.789-00"
+    idade: 29
+    genero: F
+    estado_civil: solteiro
+    estado: SP
+    renda_mensal: 3500.50
+    canal_preferido: app
+    frequencia_compras_ult_12m: 5
+    ticket_medio: 200.75
+    dias_desde_ultima_compra: 30
+    tem_cartao_fidelidade: true
+    score_engajamento: 0.82
+    comprou_ult_3m: 1

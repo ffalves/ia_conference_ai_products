@@ -1,0 +1,400 @@
+{
+  "batch_id": "20250812_032341-724fbe85",
+  "source_path": "raw_layer/data/raw_data/raw_data.csv",
+  "source_sha256": "9c76dfd8f73499949cb00d90496bc1a916ae4282fcbfc011fedf1b40ee37e45b",
+  "rows_total": 500,
+  "rows_valid": 461,
+  "rows_invalid": 39,
+  "invalid_records_pct": 7.8,
+  "status": "accepted",
+  "contract_version": "1.0.1",
+  "required_fields_presence": {
+    "email": {
+      "observed_pct": 99.0,
+      "required_pct": 98.0
+    }
+  },
+  "null_ratio_per_field": {
+    "user_id": 0.0,
+    "nome": 0.0,
+    "email": 1.0,
+    "cpf": 0.0,
+    "idade": 0.0,
+    "genero": 0.0,
+    "estado_civil": 0.0,
+    "estado": 0.0,
+    "renda_mensal": 0.0,
+    "canal_preferido": 0.0,
+    "frequencia_compras_ult_12m": 0.0,
+    "ticket_medio": 0.0,
+    "dias_desde_ultima_compra": 0.0,
+    "tem_cartao_fidelidade": 0.0,
+    "score_engajamento": 0.0,
+    "comprou_ult_3m": 0.0
+  },
+  "null_ratio_alerts": {},
+  "domain_violations_per_field": {
+    "email": 13,
+    "user_id": 10,
+    "cpf": 5,
+    "idade": 4,
+    "canal_preferido": 4,
+    "dias_desde_ultima_compra": 4,
+    "score_engajamento": 4
+  },
+  "failure_details": [
+    {
+      "schema_context": "Column",
+      "column": "user_id",
+      "check": "field_uniqueness",
+      "check_number": null,
+      "failure_case": "XYZ",
+      "index": 197
+    },
+    {
+      "schema_context": "Column",
+      "column": "user_id",
+      "check": "field_uniqueness",
+      "check_number": null,
+      "failure_case": "XYZ",
+      "index": 226
+    },
+    {
+      "schema_context": "Column",
+      "column": "cpf",
+      "check": "<lambda>",
+      "check_number": 1,
+      "failure_case": "123.***.***-00",
+      "index": 73
+    },
+    {
+      "schema_context": "Column",
+      "column": "cpf",
+      "check": "<lambda>",
+      "check_number": 1,
+      "failure_case": "123.***.***-00",
+      "index": 187
+    },
+    {
+      "schema_context": "Column",
+      "column": "cpf",
+      "check": "<lambda>",
+      "check_number": 1,
+      "failure_case": "123.***.***-00",
+      "index": 438
+    },
+    {
+      "schema_context": "Column",
+      "column": "cpf",
+      "check": "<lambda>",
+      "check_number": 1,
+      "failure_case": "123.***.***-00",
+      "index": 470
+    },
+    {
+      "schema_context": "Column",
+      "column": "idade",
+      "check": "greater_than_or_equal_to(18)",
+      "check_number": 0,
+      "failure_case": 16,
+      "index": 99
+    },
+    {
+      "schema_context": "Column",
+      "column": "idade",
+      "check": "greater_than_or_equal_to(18)",
+      "check_number": 0,
+      "failure_case": 16,
+      "index": 219
+    },
+    {
+      "schema_context": "Column",
+      "column": "idade",
+      "check": "greater_than_or_equal_to(18)",
+      "check_number": 0,
+      "failure_case": 16,
+      "index": 239
+    },
+    {
+      "schema_context": "Column",
+      "column": "idade",
+      "check": "greater_than_or_equal_to(18)",
+      "check_number": 0,
+      "failure_case": 16,
+      "index": 384
+    },
+    {
+      "schema_context": "Column",
+      "column": "canal_preferido",
+      "check": "isin(['app', 'site', 'whatsapp', 'email'])",
+      "check_number": 0,
+      "failure_case": "telefone",
+      "index": 120
+    },
+    {
+      "schema_context": "Column",
+      "column": "canal_preferido",
+      "check": "isin(['app', 'site', 'whatsapp', 'email'])",
+      "check_number": 0,
+      "failure_case": "telefone",
+      "index": 193
+    },
+    {
+      "schema_context": "Column",
+      "column": "canal_preferido",
+      "check": "isin(['app', 'site', 'whatsapp', 'email'])",
+      "check_number": 0,
+      "failure_case": "telefone",
+      "index": 303
+    },
+    {
+      "schema_context": "Column",
+      "column": "canal_preferido",
+      "check": "isin(['app', 'site', 'whatsapp', 'email'])",
+      "check_number": 0,
+      "failure_case": "telefone",
+      "index": 399
+    },
+    {
+      "schema_context": "Column",
+      "column": "dias_desde_ultima_compra",
+      "check": "greater_than_or_equal_to(0)",
+      "check_number": 0,
+      "failure_case": -5,
+      "index": 250
+    },
+    {
+      "schema_context": "Column",
+      "column": "dias_desde_ultima_compra",
+      "check": "greater_than_or_equal_to(0)",
+      "check_number": 0,
+      "failure_case": -5,
+      "index": 252
+    },
+    {
+      "schema_context": "Column",
+      "column": "dias_desde_ultima_compra",
+      "check": "greater_than_or_equal_to(0)",
+      "check_number": 0,
+      "failure_case": -5,
+      "index": 380
+    },
+    {
+      "schema_context": "Column",
+      "column": "dias_desde_ultima_compra",
+      "check": "greater_than_or_equal_to(0)",
+      "check_number": 0,
+      "failure_case": -5,
+      "index": 410
+    },
+    {
+      "schema_context": "Column",
+      "column": "score_engajamento",
+      "check": "less_than_or_equal_to(1.0)",
+      "check_number": 1,
+      "failure_case": 1.5,
+      "index": 41
+    },
+    {
+      "schema_context": "Column",
+      "column": "score_engajamento",
+      "check": "less_than_or_equal_to(1.0)",
+      "check_number": 1,
+      "failure_case": 1.5,
+      "index": 183
+    },
+    {
+      "schema_context": "Column",
+      "column": "score_engajamento",
+      "check": "less_than_or_equal_to(1.0)",
+      "check_number": 1,
+      "failure_case": 1.5,
+      "index": 397
+    },
+    {
+      "schema_context": "Column",
+      "column": "cpf",
+      "check": "<lambda>",
+      "check_number": 1,
+      "failure_case": "123.***.***-00",
+      "index": 66
+    },
+    {
+      "schema_context": "Column",
+      "column": "email",
+      "check": "field_uniqueness",
+      "check_number": null,
+      "failure_case": "sr***@example.com",
+      "index": 378
+    },
+    {
+      "schema_context": "Column",
+      "column": "email",
+      "check": "field_uniqueness",
+      "check_number": null,
+      "failure_case": "sr***@example.com",
+      "index": 377
+    },
+    {
+      "schema_context": "Column",
+      "column": "email",
+      "check": "not_nullable",
+      "check_number": null,
+      "failure_case": "n*n",
+      "index": 6
+    },
+    {
+      "schema_context": "Column",
+      "column": "user_id",
+      "check": "field_uniqueness",
+      "check_number": null,
+      "failure_case": "XYZ",
+      "index": 340
+    },
+    {
+      "schema_context": "Column",
+      "column": "user_id",
+      "check": "field_uniqueness",
+      "check_number": null,
+      "failure_case": "XYZ",
+      "index": 344
+    },
+    {
+      "schema_context": "Column",
+      "column": "user_id",
+      "check": "field_uniqueness",
+      "check_number": null,
+      "failure_case": "XYZ",
+      "index": 447
+    },
+    {
+      "schema_context": "Column",
+      "column": "user_id",
+      "check": "str_matches('^U\\d{3}$')",
+      "check_number": 0,
+      "failure_case": "XYZ",
+      "index": 197
+    },
+    {
+      "schema_context": "Column",
+      "column": "user_id",
+      "check": "str_matches('^U\\d{3}$')",
+      "check_number": 0,
+      "failure_case": "XYZ",
+      "index": 226
+    },
+    {
+      "schema_context": "Column",
+      "column": "user_id",
+      "check": "str_matches('^U\\d{3}$')",
+      "check_number": 0,
+      "failure_case": "XYZ",
+      "index": 340
+    },
+    {
+      "schema_context": "Column",
+      "column": "user_id",
+      "check": "str_matches('^U\\d{3}$')",
+      "check_number": 0,
+      "failure_case": "XYZ",
+      "index": 344
+    },
+    {
+      "schema_context": "Column",
+      "column": "user_id",
+      "check": "str_matches('^U\\d{3}$')",
+      "check_number": 0,
+      "failure_case": "XYZ",
+      "index": 447
+    },
+    {
+      "schema_context": "Column",
+      "column": "email",
+      "check": "not_nullable",
+      "check_number": null,
+      "failure_case": "n*n",
+      "index": 20
+    },
+    {
+      "schema_context": "Column",
+      "column": "email",
+      "check": "field_uniqueness",
+      "check_number": null,
+      "failure_case": "dr***@example.com",
+      "index": 331
+    },
+    {
+      "schema_context": "Column",
+      "column": "email",
+      "check": "not_nullable",
+      "check_number": null,
+      "failure_case": "n*n",
+      "index": 71
+    },
+    {
+      "schema_context": "Column",
+      "column": "email",
+      "check": "not_nullable",
+      "check_number": null,
+      "failure_case": "n*n",
+      "index": 204
+    },
+    {
+      "schema_context": "Column",
+      "column": "email",
+      "check": "not_nullable",
+      "check_number": null,
+      "failure_case": "n*n",
+      "index": 235
+    },
+    {
+      "schema_context": "Column",
+      "column": "email",
+      "check": "field_uniqueness",
+      "check_number": null,
+      "failure_case": "an***@example.org",
+      "index": 270
+    },
+    {
+      "schema_context": "Column",
+      "column": "email",
+      "check": "field_uniqueness",
+      "check_number": null,
+      "failure_case": "an***@example.org",
+      "index": 271
+    },
+    {
+      "schema_context": "Column",
+      "column": "email",
+      "check": "field_uniqueness",
+      "check_number": null,
+      "failure_case": "sr***@example.net",
+      "index": 316
+    },
+    {
+      "schema_context": "Column",
+      "column": "email",
+      "check": "field_uniqueness",
+      "check_number": null,
+      "failure_case": "sr***@example.net",
+      "index": 317
+    },
+    {
+      "schema_context": "Column",
+      "column": "email",
+      "check": "field_uniqueness",
+      "check_number": null,
+      "failure_case": "dr***@example.com",
+      "index": 330
+    },
+    {
+      "schema_context": "Column",
+      "column": "score_engajamento",
+      "check": "less_than_or_equal_to(1.0)",
+      "check_number": 1,
+      "failure_case": 1.5,
+      "index": 445
+    }
+  ],
+  "soft_custom_checks": {}
+}

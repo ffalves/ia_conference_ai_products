@@ -1,0 +1,33 @@
+# ========================
+# Python
+# ========================
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+
+# ========================
+# Poetry / Virtualenv
+# ========================
+.venv/
+.env
+*.lock
+
+# ========================
+# IDEs / Ferramentas locais
+# ========================
+.vscode/
+.idea/
+.DS_Store
+
+# ========================
+# Arquivos temporários
+# ========================
+*.swp
+*.swo
+~$*

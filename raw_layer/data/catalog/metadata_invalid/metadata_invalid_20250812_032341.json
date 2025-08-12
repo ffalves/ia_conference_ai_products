@@ -1,0 +1,12 @@
+{
+  "status": "invalid",
+  "batch_id": "20250812_032341-724fbe85",
+  "row_count": 39,
+  "source_file": "raw_layer/data/raw_data/raw_data.csv",
+  "source_sha256": "9c76dfd8f73499949cb00d90496bc1a916ae4282fcbfc011fedf1b40ee37e45b",
+  "contract_version": "1.0.1",
+  "timestamp": "2025-08-12T03:23:41.177476",
+  "sample_output_file": "raw_layer/data/logs/invalid_records_20250812_032341.csv",
+  "sample_output_sha256": "6490b95f04a9803de6652903f31fbd0ca04da58d3d169cbf1c9611631edd6e09",
+  "producer": "input_contract_enforcer"
+}

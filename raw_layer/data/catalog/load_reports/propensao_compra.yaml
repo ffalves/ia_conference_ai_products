@@ -1,0 +1,126 @@
+# catalog/ml/propensao_compra.yaml
+catalogSpec: 1.0
+domain: crm
+product: propensao_compra
+owner:
+  name: CRM Team
+  email: joaomaria@crmteam.com
+
+assets:
+
+  - id: ds.feature_store_propensao_v1
+    name: Feature Store – Propensão de Compra (v1)
+    type: table
+    layer: gold
+    physical:
+      format: parquet
+      path: s3://datalake/gold/crm/feature_store/propensao_compra/v1/
+      partitioning: [dt]
+    governance:
+      classification: internal
+      data_contract: raw_layer/contracts/input_contract.yaml
+      retention: P365D
+      pii_fields: [email, cpf]        # todos tokenizados/hash na publicação
+      access_policies:
+        readers: [team.propensao, team.analytics]
+        writers: [team.propensao]
+    schema:
+      primary_key: [user_id]
+      fields:
+        - {name: user_id, type: string, description: "Identificador do usuário"}
+        - {name: idade, type: int, description: "Idade em anos"}
+        - {name: renda_mensal, type: double, description: "Renda estimada BRL"}
+        - {name: score_engajamento, type: double, description: "0..1"}
+        - {name: freq_ult_12m, type: int, description: "Compras no período"}
+        - {name: recencia_dias, type: int, description: "Dias desde última compra"}
+        - {name: canal_preferido_onehot_app, type: int, description: "Feature engenharia"}
+        - {name: canal_preferido_onehot_site, type: int, description: "Feature engenharia"}
+        - {name: canal_preferido_onehot_whatsapp, type: int, description: "Feature engenharia"}
+        - {name: canal_preferido_onehot_email, type: int, description: "Feature engenharia"}
+        - {name: dt, type: date, description: "Partição de referência"}
+    lineage:
+      inputs:
+        - id: raw.users.valid
+          layer: raw
+          path: raw_layer/data/processed_raw_data/valid/
+          contract: raw_layer/contracts/input_contract.yaml
+      transforms:
+        - step: "feature engineering"
+          code_ref: "git://repo/feature_engineering.py#L20-L180"
+          outputs: ["one-hot canal", "recencia_dias", "freq_ult_12m"]
+    quality:
+      last_run:
+        timestamp: "2025-08-11T20:57:38Z"
+        rows: 461
+        invalid_rows: 39
+        invalid_pct: 7.8
+        report_json: raw_layer/data/catalog/load_reports/load_report_20250811_205738.json
+      expectations:
+        null_ratio_per_field_max_pct: 5
+        required_fields_presence:
+          email: 98
+    tags: [feature-store, gold, ml, propensao]
+
+  - id: ds.propensao_compra_predictions_v1
+    name: Predições – Propensão de Compra (v1)
+    type: table
+    layer: gold
+    physical:
+      format: parquet
+      path: s3://datalake/gold/crm/predictions/propensao_compra/v1/
+      partitioning: [inference_dt]
+    governance:
+      classification: internal
+      served_via_contract: contracts/output_contract_api.yaml   # contrato de saída p/ API
+      retention: P90D
+      access_policies:
+        readers: [team.crm_ops, team.marketing, team.propensao]
+        writers: [team.propensao]
+    schema:
+      primary_key: [user_id, inference_dt]
+      fields:
+        - {name: user_id, type: string, description: "Identificador do usuário"}
+        - {name: propensity_score, type: double, description: "Probabilidade 0..1"}
+        - {name: score_bucket, type: string, description: "ALTO|MEDIO|BAIXO"}
+        - {name: model_version, type: string, description: "hash/semver do modelo"}
+        - {name: model_uri, type: string, description: "URI no registry"}
+        - {name: inference_dt, type: date, description: "Data de inferência"}
+        - {name: metadata_run_id, type: string, description: "ID do run para rastreio"}
+    lineage:
+      inputs:
+        - id: ds.feature_store_propensao_v1
+      transforms:
+        - step: "inference"
+          code_ref: "git://repo/predict.py#main"
+          model:
+            registry_uri: "mlflow://models:/propensao_compra/Production"
+            model_version: "2025.08.11+build.7f2a9c1"
+            artifacts:
+              - "s3://ml-artifacts/prop_compra/2025-08-11/model.pkl"
+              - "s3://ml-artifacts/prop_compra/2025-08-11/requirements.txt"
+    quality:
+      last_run:
+        timestamp: "2025-08-11T21:05:06Z"
+        rows: 461
+        drift_checks:
+          population_stability_index: 0.07
+          psi_threshold_warn: 0.1
+        metrics_snapshot:
+          auc_pr_train: 0.61
+          auc_pr_val: 0.59
+          f1_opt_threshold: 0.41
+    publishing:
+      downstream:
+        - type: api
+          name: "crm-propensity-api"
+          contract: "contracts/output_contract_api.yaml"
+          endpoint: "https://api.company.com/propensity/v1"
+        - type: bi
+          name: "dashboards_marketing"
+          note: "consome score_bucket"
+    observability_hooks:
+      run_metadata:
+        batch_id: "20250811_210506-035d8de1"
+        load_report: raw_layer/data/catalog/load_reports/load_report_20250811_205738.json
+        model_metadata: raw_layer/data/catalog/model/metadata_model_winner_20250811.json
+    tags: [predictions, gold, ml, propensao, serving]

@@ -1,0 +1,23 @@
+[tool.poetry]
+name = "data product ai - ia conference 2025"
+version = "0.1.0"
+description = "An example for IA Conference 2025 about a data product AI framework"
+authors = ["Fefe Alves <monitore.falves@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.13"
+pandera = "^0.25.0"
+pandas = "^2.3.1"
+datetime = "^5.5"
+pyyaml = "^6.0.2"
+faker = "^37.5.3"
+numpy = "^2.3.2"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.4.1"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
